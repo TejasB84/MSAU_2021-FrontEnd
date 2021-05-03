@@ -1,0 +1,24 @@
+<h2>Demands List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Demand Id</th>
+            <th>Role </th>
+            <th>Department</th>
+            <th>Manager Name</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let d of demands | paginate: { itemsPerPage: 5, currentPage: p } ">
+            <td>{{d.did}}</td>
+            <td>{{d.role}}</td>
+            <td>{{d.dept}}</td>
+            <td>{{d.mname}}</td>
+            <td>{{d.location}}</td>
+            
+        </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>

@@ -1,0 +1,29 @@
+<h1>Onboardees List</h1>
+<div class="form-group">
+    <input type="text" class="form-control" id="serchbyname" placeholder="Search by Name" [(ngModel)]="nameSearch">
+  </div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last name</th>
+            <th>City</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let candidate of candidates | paginate: { itemsPerPage: 5, currentPage: p } | filterbyname : nameSearch">
+            <td>{{candidate.id}}</td>
+            <td>{{candidate.firstname}}</td>
+            <td>{{candidate.lastname}}</td>
+            <td>{{candidate.city}}</td>
+            <td>
+                <button (click)='updateCandidate(candidate.id)' class="btn btn-info">Update</button>
+                <button (click)='deleteCandidate(candidate.id)' class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+                <button (click)='viewCandidate(candidate.id)' class="btn btn-info" style="margin-left: 10px;">View</button>
+            </td>
+        </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>

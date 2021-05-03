@@ -1,0 +1,96 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Update candidate</h3>
+    <h4>Personal Details</h4>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>ID</label>
+            <input type="number" class="form-control" id="id"
+             [(ngModel)]="candidate.id" name="id">
+        </div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" id="firstname"
+             [(ngModel)]="candidate.firstname" name="firstname">
+        </div>
+    
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="lastname"
+             [(ngModel)]="candidate.lastname" name="lastname">
+        </div>
+        <div class="form-group">
+            <label>Contact No</label>
+            <input type="text" class="form-control" id="phoneno"
+             [(ngModel)]="candidate.phoneno" name="phoneno">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" id="email"
+             [(ngModel)]="candidate.email" name="email">
+        </div>
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" class="form-control" id="birthdate"
+             [(ngModel)]="candidate.birthdate" name="birthdate">
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" class="form-control" id="city"
+             [(ngModel)]="candidate.city" name="city">
+        </div>
+        <div class="form-group">
+            <label>Contry</label>
+            <input type="text" class="form-control" id="contry"
+             [(ngModel)]="candidate.country" name="country">
+        </div>
+       
+       <h4>Educational Details</h4>
+       <div class="form-group">
+        <label>College Name</label>
+        <input type="text" class="form-control" id="clgname"
+         [(ngModel)]="edudetails.clgname" name="clgname">
+    </div>
+    <div class="form-group">
+        <label>University Name</label>
+        <input type="text" class="form-control" id="universityname"
+         [(ngModel)]="edudetails.universityname" name="universityname">
+    </div>
+    <div class="form-group">
+        <label>Skills</label>
+        <input type="text" class="form-control" id="course"
+         [(ngModel)]="edudetails.course" name="course">
+    </div>
+    <div class="form-group">
+        <label>Address of College</label>
+        <input type="text" class="form-control" id="address"
+         [(ngModel)]="edudetails.address" name="address">
+    </div>
+
+    <h4>Joining Details</h4>
+    <div class="form-group">
+        <label>Expected Joining Date</label>
+        <input type="date" class="form-control" id="date"
+         [(ngModel)]="joiningdetails.date" name="date">
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input type="text" class="form-control" id="location"
+         [(ngModel)]="joiningdetails.location" name="location">
+    </div>
+    <div class="form-group">
+        <label>Technology</label>
+        <input type="text" class="form-control" id="technology"
+         [(ngModel)]="joiningdetails.technology" name="technology">
+    </div>
+    <div class="form-group">
+        <label>Feedback</label>
+        <input type="text" class="form-control" id="feedback"
+         [(ngModel)]="joiningdetails.feedback" name="feedback">
+    </div>
+
+    
+        <button class="btn btn-success" type="submit">Submit</button>
+    
+    </form>
+    </div>
+    
