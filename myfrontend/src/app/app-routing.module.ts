@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './Authorization/auth.guard';
 import { CandidatelistComponent } from './candidatelist/candidatelist.component';
 import { CreatecandidateComponent } from './createcandidate/createcandidate.component';
 import { DemandsComponent } from './demands/demands.component';
@@ -9,12 +10,13 @@ import { UpdatecandidateComponent } from './updatecandidate/updatecandidate.comp
 import { ViewcandidateComponent } from './viewcandidate/viewcandidate.component';
 
 const routes: Routes = [
-  {path:'home',component:CandidatelistComponent},
-  {path:'add',component:CreatecandidateComponent},
-  {path :'update/:id',component :UpdatecandidateComponent},
-  {path :'view/:id',component:ViewcandidateComponent},
-  {path:'trends',component:TrendsComponent},
-  {path:'demands',component:DemandsComponent},
+  {path:'home',canActivate:[AuthGuard],component:CandidatelistComponent},
+ 
+  {path:'add',canActivate:[AuthGuard],component:CreatecandidateComponent},
+  {path :'update/:id',canActivate:[AuthGuard],component :UpdatecandidateComponent},
+  {path :'view/:id',canActivate:[AuthGuard],component:ViewcandidateComponent},
+  {path:'trends',canActivate:[AuthGuard],component:TrendsComponent},
+  {path:'demands',canActivate:[AuthGuard],component:DemandsComponent},
   {path:'login',component:LoginComponent},
   {path:'',redirectTo:'login',pathMatch:'full'}
 ];

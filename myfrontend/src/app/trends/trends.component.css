@@ -1,0 +1,24 @@
+/* h2 {
+    margin: -15px 20px;
+}
+.h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20;    
+}
+
+ */
+
+
+.table-wrapper {
+    width: 1000px;
+    margin: 80px auto;
+    background: #fff;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 45px;
+    padding-bottom: 25px;
+    border: 31px solid rgb(0, 214, 230);
+} 
+
+  
+  

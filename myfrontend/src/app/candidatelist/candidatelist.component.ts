@@ -27,9 +27,13 @@ export class CandidatelistComponent implements OnInit {
   }
   deleteCandidate(id : any)
   {
-    this.candidateService.deleteCandidateById(id).subscribe(data=>{});
+    this.candidateService.deleteCandidateById(id).subscribe(data=>{
+      alert("Are you want to delete this onboardee..?");
+      this.ngOnInit();
+    });
+
     // this.getCandidate();
-    this.ngOnInit();
+    
   }
   viewCandidate(id : any)
   {

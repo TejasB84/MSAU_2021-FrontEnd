@@ -1,151 +1,224 @@
-<div class="col-md-6 offset-md-3">
-<h3>Add New candidate</h3>
-<h4>Personal Details :</h4>
-<form  (ngSubmit)="onSubmit()">
-    <style>
-        input.ng-invalid {
-          background-color: pink;
-        }
-        input.ng-valid {
-          background-color: lightgreen;
-        }
-        </style>
-        
-    <div class="form-group">
-        
-        <label>ID</label>
-        <input type="number" class="form-control" id="id" required
-         [(ngModel)]="candidate.id" name="id">
 
+ 
+<!-- try -->
+ 
+<app-navbar1></app-navbar1>
+<div class="table-wrapper">
+    <h2> <u>Add New candidate </u></h2>
+    <div class="col-md-6 offset-md-3">
         
-    </div>
-    <div class="form-group">
-        <label>First Name</label>
-        <input type="text" class="form-control" id="firstname" required
-         [(ngModel)]="candidate.firstname" name="firstname">
-
-         
-        
-    </div>
-
-    <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" class="form-control" id="lastname" required
-         [(ngModel)]="candidate.lastname" name="lastname">
-
-         
-    </div>
-      <div class="form-group">
-        <label>Contact No</label>
-        <input type="text" class="form-control" id="phoneno" placeholder="07xxxxxxxx" required
-         [(ngModel)]="candidate.phoneno" name="phoneno">
-
-        
-    </div> 
+    <form (ngSubmit)="onSubmit()"  [formGroup]="multistep">
+    <div *ngIf="step==1" formGroupName="candidateDetails1">
+        <h4>Personal Details :</h4>
+            <div class= "form-group">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" formControlName="id" id="inputfname" placeholder="Enter ID" required
+                        [(ngModel)]="candidate.id" >
+                        <span  class="text-danger" *ngIf="submitted && candidateDetails1.id.errors?.required">Please Enter ID</span>
+                </div>
+                <div class= "form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" formControlName="fname" id="inputfname" placeholder="First Name" required
+                        [(ngModel)]="candidate.firstname" >
+                        <span  class="text-danger" *ngIf="submitted && candidateDetails1.fname.errors?.required">Please Enter First Name</span>
+                </div>
+                <div class= "form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" formControlName="lname" id="inputPassword4" placeholder="Last Name" required
+                        [(ngModel)]="candidate.lastname" >
+                        <span  class="text-danger" *ngIf="submitted && candidateDetails1.lname.errors?.required">Please Enter Last Name</span>
+                </div>
     
+                <div class= "form-group">
+                    <label for="inputDOB">DOB</label>
+                    <input type="date" class="form-control" formControlName="birthdate" id="inputDOB" required [(ngModel)]="candidate.birthdate"  >
+                    <span  class="text-danger" *ngIf="submitted && candidateDetails1.birthdate.errors?.required">Please Enter DOB</span>
+                </div>
+                <div class= "form-group">
+                    <label for="lname">City</label>
+                    <input type="text" class="form-control" formControlName="city" id="inputPassword4" placeholder="City" required
+                        [(ngModel)]="candidate.city" >
+                        <span class="text-danger" *ngIf="submitted && candidateDetails1.city.errors?.required">Please Enter City</span>
+                </div>
+
+                <div class= "form-group">
+                    <label for="lname">Country</label>
+                    <input type="text" class="form-control"  formControlName="country" id="inputPassword4" placeholder="Country" required
+                        [(ngModel)]="candidate.country" >
+                        <span  class="text-danger"*ngIf="submitted && candidateDetails1.country.errors?.required">Please Enter Country</span>
+                </div>
+
+
+                <div class= "form-group">
+                    <label for="inputConatact">Contact</label>
+                    <input type="text" class="form-control" formControlName="phoneno" minlength=10 maxlength=10 id="inputContact" required [(ngModel)]="candidate.phoneno"
+                       >
+                        <span  class="text-danger" *ngIf="submitted && candidateDetails1.phoneno.errors?.required">Please Enter 10 Vaild Contact No:</span>
+                </div>
+                <div class= "form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="text" class="form-control" formControlName="email" id="inputEmail" placeholder="example@gmail.com" required
+                        [(ngModel)]="candidate.email" >
+                        <span  class="text-danger" *ngIf="submitted && candidateDetails1.email.errors?.required">Please Enter Email Address</span>
+                </div>
+
+    </div>
+    <div *ngIf="step==2" formGroupName="eduDetails1">
+       <h4>Educational Details :</h4>
+
+        <div  class="form-group">
+                    <label for="lname">College Name</label>
+                    <input type="text" class="form-control" formControlName="clname" id="inputPassword4" placeholder="College Name" required
+                        [(ngModel)]="edudetails.clgname" >
+                        <span  class="text-danger" *ngIf="submitted && eduDetails1.clname.errors?.required">Please Enter College Name</span>
+                </div>
+
+
+
+                <div  class="form-group">
+                    <label for="lname">University Name</label>
+                    <input type="text" class="form-control" formControlName="universityname" id="inputPassword4" placeholder="University Name" required
+                        [(ngModel)]="edudetails.universityname" >
+                        <span  class="text-danger" *ngIf="submitted && eduDetails1.universityname.errors?.required">Please Enter University Name</span>
+                </div>
+
+                <div  class="form-group">
+                    <label for="lname">Course</label>
+                    <input type="text" class="form-control" formControlName="course" id="inputPassword4" placeholder="Course Name" required
+                        [(ngModel)]="edudetails.course" >
+                        <span  class="text-danger" *ngIf="submitted && eduDetails1.course.errors?.required">Please Enter course Name</span>
+
+                </div>
+
+                <div  class="form-group">
+                    <label for="lname">College Address</label>
+                    <input type="text" class="form-control" formControlName="address" id="inputPassword4" placeholder="College Address" required
+                        [(ngModel)]="edudetails.address" >
+                        <span  class="text-danger" *ngIf="submitted && eduDetails1.address.errors?.required">Please Enter Address</span>
+
+                </div>
+
+                
     
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" id="email" required
-         [(ngModel)]="candidate.email" name="email">
-        
     </div>
-    <div class="form-group">
-        <label>Date of Birth</label>
-        <input type="date" class="form-control" id="birthdate" required
-         [(ngModel)]="candidate.birthdate" name="birthdate">
-    </div>
-    <div class="form-group">
-        <label>City</label>
-        <input type="text" class="form-control" id="city" required
-         [(ngModel)]="candidate.city" name="city">
-    </div>
-    <div class="form-group">
-        <label>Contry</label>
-        <input type="text" class="form-control" id="contry" required
-         [(ngModel)]="candidate.country" name="country">
-    </div>
-   
-    <h4>Educational Details :</h4>
+    <div *ngIf="step==3" formGroupName="joiningDetails1">
+        <h4>Joining Details</h4>
+                <div  class="form-group">
+                    <label for="inputDOB">Joining Date</label>
+                    <input type="date" class="form-control"   formControlName="date" id="inputDOB" required [(ngModel)]="joiningdetails.date">
+                    <span  class="text-danger" *ngIf="submitted && joiningDetails1.date.errors?.required">Please Enter Date of Joining</span>
 
-    <div class="form-group">
-        <label>College Name</label>
-        <input type="text" class="form-control" id="clgname"
-         [(ngModel)]="edudetails.clgname" name="clgname">
-    </div>
-    <div class="form-group">
-        <label>University Name</label>
-        <input type="text" class="form-control" id="universityname"
-         [(ngModel)]="edudetails.universityname" name="universityname">
-    </div>
-    <div class="form-group">
-        <label>Skills</label>
-        <input type="text" class="form-control" id="course"
-         [(ngModel)]="edudetails.course" name="course">
-    </div>
-    <div class="form-group">
-        <label>Address of College</label>
-        <input type="text" class="form-control" id="address"
-         [(ngModel)]="edudetails.address" name="address">
+                </div>
+                <div class="form-group">
+                    <label>Joining Location </label>
+                    <select class="custom-select" [(ngModel)]="joiningdetails.location" formControlName="location">
+                        <option selected>{{joiningdetails.location}}</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Banglore">Banglore</option>
+                        <option value="Hydrabad">Hydrabad</option>
+                        <option value="Pune">Pune</option>
+                    </select>
+                </div>
+                
+                <div  class="form-group">
+                    <label for="lname">Feedback</label>
+                    <input type="text" class="form-control" formControlName="feedback" id="inputPassword4" placeholder="Feedback" required
+                        [(ngModel)]="joiningdetails.feedback">
+                        <span  class="text-danger" *ngIf="submitted && joiningDetails1.feedback.errors?.required">Please Enter Feedback</span>
+
+                </div>
+                
+                <div class="form-group ">
+                    <label>Technology</label>
+                    <select class="custom-select" [(ngModel)]="joiningdetails.technology" formControlName="technology" placeholder="Select Skills">
+                        <option value="Java">Java</option>
+                        <option value="C++">C++</option>
+                        <option value="Python">Python</option>
+                        <option value="Spring Boot">Spring Boot</option>
+                        <option value="Angular">Angular</option>
+                        <option value="MySql">Mysql</option>
+                    </select>
+                </div>
     </div>
 
-    <h4>Joining Details</h4>
-    <div class="form-group">
-        <label>Expected Joining Date</label>
-        <input type="date" class="form-control" id="date"
-         [(ngModel)]="joiningdetails.date" name="date">
-    </div>
-    <div class="form-group">
-        <label>Location</label>
-        <input type="text" class="form-control" id="location"
-         [(ngModel)]="joiningdetails.location" name="location">
-    </div>
-    <div class="form-group">
-        <label>Technology</label>
-        <input type="text" class="form-control" id="technology"
-         [(ngModel)]="joiningdetails.technology" name="technology">
-    </div>
-    <div class="form-group">
-        <label>Feedback</label>
-        <input type="text" class="form-control" id="feedback"
-         [(ngModel)]="joiningdetails.feedback" name="feedback">
-    </div>
 
-    <!-- <h4>Relevant Demands</h4>
-    <div class="form-group">
-        <label>Choose a Relevant Demand</label><br/><br/>
-        <md-radio-group formControlName="demands"  #demands><br/>
-          <md-radio-button [value]=null>None</md-radio-button><br/>
-          <md-radio-button *ngFor="let demands of relevantDmds" [value]="demands">{{demands.did}} | Role: {{demands.role}} | Hiring Manager: {{demands.mname}} | Dept: {{demands.dept}} | Location: {{demands.location}}</md-radio-button><br/>
-        </md-radio-group>
-    </div> -->
+
+
+        <div *ngIf="step==4" formGroupName="onboardingDetails1">
+                <h4>Onboarding Details</h4>
+                
+                <div  class="form-group">
+                    <label for="inputDOB">Onboarding Date</label>
+                    <input type="date" class="form-control"   formControlName="onboardingDate" id="inputDOB" required [(ngModel)]="onboardingdetails.onboardingDate">
+                    <span  class="text-danger" *ngIf="submitted && onboardingDetails1.onboardingDate.errors?.required">Please Enter Date of onboarding</span>
+
+                </div>
+
+                <div class="col-auto">
+
+                    <label>BCG Status</label>
+                    <select class="custom-select" [(ngModel)]="onboardingdetails.bcgStatus" formControlName="bcgStatus">
+                        <option selected>{{onboardingdetails.bcgStatus}}</option>
+                        <option value="Done">Done</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+
+                   
+                <div class="col-auto">
+                    <label>Graduation Status</label>
+                    <select class="custom-select" [(ngModel)]="onboardingdetails.graduationStatus" formControlName="graduationStatus">
+                        <option selected>{{onboardingdetails.graduationStatus}}</option>
+                        <option value="Done">Done</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                    
+                </div>
+
+               
+                <div class="col-auto">
+
+                    <label>ETA Status</label>
+                    <select class="custom-select" [(ngModel)]="onboardingdetails.etaStatus" formControlName="etaStatus">
+                        <option selected>{{onboardingdetails.etaStatus}}</option>
+                        <option value="Done">Done</option>
+                        <option value="Pending">Pending</option>
+                    </select>
     
+                </div>
 
 
-    <h4>Onboarding Status</h4>
-    <div class="form-group">
-        <label>Onboarding Date</label>
-        <input type="date" class="form-control" id="onboardingDate"
-         [(ngModel)]="onboardingdetails.onboardingDate" name="date">
+                <div class="form-group col-md-4 mb-3">
+                    <label>Demand Id</label>
+
+<!-- 
+                    <input type="text" class="form-control"  formControlName="did" id="inputPassword4" placeholder="Demand id" required
+                    [(ngModel)]="candidate.did" > -->
+                   
+
+                     
+                     <select class="custom-select" [(ngModel)]="candidate.did" formControlName="did">
+                          <option selected>{{candidate.did}}</option> 
+                         <!-- <option *ngFor="let demand  candidate"value={{demand.did}}>{{demand.role}}</option>  -->
+                        <option value="1">SDE</option>
+                        <option value="2">SDE1</option>
+                        <option value="3">Tester</option> 
+                        <option value="4">System Admin </option> 
+                        <option value="5">UI</option> 
+                    </select>  
+                </div>  
+              
+         </div>
+
+
+
+        <div  >
+            <a class="btn btn-primary mx-3" *ngIf="step!=1" (click)="previous()">Previous</a>
+            <button class="btn btn-success mx-3" *ngIf="step!=4" type="submit">Next</button>
+            <button class="btn btn-success mx-3"*ngIf="step==4" type="submit">Submit</button>
+        </div>
+    
+    </form>
+    <br>
     </div>
-    <div class="form-group">
-        <label>BCG Status</label>
-        <input type="text" class="form-control" id="bcgStatus"
-         [(ngModel)]="onboardingdetails.bcgStatus" name="bcgStatus">
-    </div>
-    <div class="form-group">
-        <label>Graduation Status</label>
-        <input type="text" class="form-control" id="GraduationStatus"
-         [(ngModel)]="onboardingdetails.GraduationStatus" name="GraduationStatus">
-    </div>
-    <div class="form-group">
-        <label>Onboarding formailites(ETA) status</label>
-        <input type="text" class="form-control" id="etaStatus"
-         [(ngModel)]="onboardingdetails.etaStatus" name="etaStatus">
-    </div> 
-
-    <button class="btn btn-success" type="submit">Submit</button>
-
-</form>
 </div> 
-

@@ -1,0 +1,99 @@
+.table-wrapper {
+    width: 1000px;
+    margin: 80px auto;
+    background: #fff;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 45px;
+    padding-bottom: 25px;
+    border: 31px solid rgb(0, 214, 230);
+}
+
+.table{
+    border: #a0a5b1;
+}
+
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}    
+
+table.table td a.edit {
+    color: #FFC107;
+}
+table.table td a.delete {
+    color: #E34724;
+}
+
+table.table td a.view {
+    color: #0755ff;
+}
+.title{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20;    
+}
+
+
+.thead{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 193, 252);
+    
+}
+
+.table thead th{
+    font-weight: normal;
+    border-bottom: 2px solid  rgb(0, 193, 252);
+    border-left: #fff ;
+    border-right: #fff;
+    border-top:#fff ;
+    font-size: large;
+}
+
+
+.row{
+    width: 1000px;
+}
+
+.search-box {
+    position: relative;       
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    float: right;
+}
+.search-box input {
+    height: 45px;
+    width: 190px;
+    border-radius: 10px;
+    padding-left: 35px;
+    box-shadow: none;
+}
+.search-box :hover{
+    border-color: #379bbd;
+}
+.search-box input:focus {
+    border-color: #3FBAE4;
+}
+.search-box i {
+    color: #a0a5b1;
+    position: absolute;
+    font-size: 19px;
+    top: 8px;
+    left: 10px;
+}
+
+button{
+    margin-top: 10px;
+    float:right ;
+    margin-left: 10px;
+    border-radius: 5px;   
+}

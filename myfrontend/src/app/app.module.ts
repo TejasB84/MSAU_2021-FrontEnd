@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CandidatelistComponent } from './candidatelist/candidatelist.component';
-import { from } from 'rxjs';
+import { config, from } from 'rxjs';
 import { CreatecandidateComponent } from './createcandidate/createcandidate.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdatecandidateComponent } from './updatecandidate/updatecandidate.component';
@@ -35,19 +35,31 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { NavbarComponent } from './navbar/navbar.component';
+import { Navbar1Component } from './navbar1/navbar1.component';
+//import {SocialLoginModule,GoogleLoginProvider} from 'angularx-social-login';
+
+export function provideConfig(){
+  return config;
+}
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CandidatelistComponent,
-    CreatecandidateComponent,
+    
     UpdatecandidateComponent,
     ViewcandidateComponent,
     FilterbynamePipe,
     TrendsComponent,
     DemandsComponent,
     LoginComponent,
+    CreatecandidateComponent,
+    Navbar1Component
     
     
   ],
@@ -96,16 +108,22 @@ import { MatListModule } from '@angular/material/list';
     MatDialogModule,
     MatGridListModule,
     MatListModule,
+    BrowserAnimationsModule,
     
   ],
-  providers: [
-
+  // exports:[NavbarComponent],
+  exports:[Navbar1Component],
+  providers: [ 
+    // {useFactory:provideConfig()},
     {
+      
       provide: 'SocialAuthServiceConfig',
+      
       useValue: {
         autoLogin: true,
         providers: 
         [
+          
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
@@ -115,6 +133,7 @@ import { MatListModule } from '@angular/material/list';
           }
         ]
       } as SocialAuthServiceConfig,
+      
     }
   ],
   bootstrap: [AppComponent]

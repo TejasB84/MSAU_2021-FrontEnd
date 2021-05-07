@@ -21,4 +21,6 @@ export class OnboardingdetailsService {
   updateOnboarddetails(onboardingdetails  : Onboardingdetails ):Observable<any>{
     return this.httpClient.put(`${this.baseurl}`,onboardingdetails );
   }
+  
+ 
 }

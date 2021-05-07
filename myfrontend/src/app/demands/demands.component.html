@@ -1,24 +1,36 @@
-<h2>Demands List</h2>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Demand Id</th>
-            <th>Role </th>
-            <th>Department</th>
-            <th>Manager Name</th>
-            <th>Location</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor ="let d of demands | paginate: { itemsPerPage: 5, currentPage: p } ">
-            <td>{{d.did}}</td>
-            <td>{{d.role}}</td>
-            <td>{{d.dept}}</td>
-            <td>{{d.mname}}</td>
-            <td>{{d.location}}</td>
-            
-        </tr>
-    </tbody>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</table>
+
+<app-navbar1></app-navbar1>
+<div class="table-wrapper">
+<u>  <B><h2 class="text-center">  Demands Received for Onboardees</h2></B></u>
+<br>
+
+<div class="row">
+  <div class="col-sm-6" *ngFor="let demand of demands">
+    
+      <div class="shadow p-3 mb-5 bg-white rounded"  fxFlex="30">
+      <div class="card-body" >
+        <mat-card-title class="no-margin">{{demand.did}} | {{demand.role}}</mat-card-title>
+              <div fxLayout="row">
+        <span style="font-weight: bold;">Hiring Manager:&nbsp;&nbsp;</span>
+        <div>{{demand.mname}}&nbsp;&nbsp;</div>
+      </div>
+      <div fxLayout="row">
+        <span style="font-weight: bold;">Team:&nbsp;&nbsp;</span>
+        <div>{{demand.dept}}&nbsp;&nbsp;</div>
+      </div>
+      <div fxLayout="row">
+        <span style="font-weight: bold;">Location:&nbsp;&nbsp;</span>
+        <div>{{demand.location}}&nbsp;&nbsp;</div>
+      </div>
+      <div fxLayout="row">
+        <span style="font-weight: bold;">Skills Required:&nbsp;&nbsp;</span>
+        <div>{{demand.skills}}&nbsp;&nbsp;</div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+
+<!-- </div> -->

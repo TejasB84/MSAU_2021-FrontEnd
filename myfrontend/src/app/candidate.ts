@@ -7,5 +7,5 @@ export class Candidate {
     birthdate ?:string;
     city?:string;
     country?:string;
-    
+    did?:number;
 }

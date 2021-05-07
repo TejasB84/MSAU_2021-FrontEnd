@@ -4,5 +4,5 @@ export class Demands{
     dept?:string;
     mname?:string;
     location?:string;
-
+    skills?:string;
 }

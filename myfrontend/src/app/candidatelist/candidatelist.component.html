@@ -1,8 +1,23 @@
-<h1>Onboardees List</h1>
-<div class="form-group">
-    <input type="text" class="form-control" id="serchbyname" placeholder="Search by Name" [(ngModel)]="nameSearch">
-  </div>
-<table class="table table-striped">
+
+<app-navbar1></app-navbar1>
+
+<div class="container-lg">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="row title">
+        <div class="col-sm-6">
+          <h2 class="font-weight-light h1"> <b> <u> Onboardee Details </u></b></h2>
+        </div>
+        <div class="col-sm-4">
+          <div class="search-box">
+            <i class="material-icons" style="padding-top: 14px;">&#xE8B6;</i>
+            <input type="text" class="form-control"    id="serchbyname" placeholder="Search by Name" [(ngModel)]="nameSearch">
+          </div>
+        </div>
+         
+      </div>
+
+      <table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -19,11 +34,17 @@
             <td>{{candidate.lastname}}</td>
             <td>{{candidate.city}}</td>
             <td>
-                <button (click)='updateCandidate(candidate.id)' class="btn btn-info">Update</button>
-                <button (click)='deleteCandidate(candidate.id)' class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-                <button (click)='viewCandidate(candidate.id)' class="btn btn-info" style="margin-left: 10px;">View</button>
+               
+                <a class="view" title="View" data-toggle="tooltip"(click)="viewCandidate(candidate.id)"><i class="material-icons">&#xE417;</i></a>
+              <a class="edit" title="Edit" data-toggle="tooltip" (click)="updateCandidate(candidate.id)"><i
+                  class="material-icons">&#xE254;</i></a>
+              <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteCandidate(candidate.id)"><i
+                  class="material-icons">&#xE872;</i></a>
             </td>
         </tr>
     </tbody>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</table>
+</table> 
+    </div>
+  </div>
+</div> 

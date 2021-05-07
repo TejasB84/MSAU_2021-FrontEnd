@@ -1,56 +1,68 @@
-<h3>View candidate details</h3>
-<h4>Personal Details</h4>
-<div>
-    <div>
-        <label ><b>Candidate ID :</b></label> {{candidate.id}}
+
+
+<app-navbar1></app-navbar1>
+<div class="table-wrapper" >
+<h2 mat-dialog-title>{{candidate.firstname}}'s Details</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Personal Details</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: {{candidate.id}}</li>  
+          <li class="list-group-item">First Name: {{candidate.firstname}}</li>
+          <li class="list-group-item">Last Name: {{candidate.lastname}}</li>
+          <li class="list-group-item">Email: {{candidate.email}}</li>
+          <li class="list-group-item">Mobile Number: {{candidate.phoneno}}</li>
+          <li class="list-group-item">Date of Birth: {{candidate.birthdate}}</li>
+          <li class="list-group-item">City: {{candidate.city}}</li>
+          <li class="list-group-item">Country: {{candidate.country}}</li>
+          
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h3>Joining Details</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Joining Date: {{joiningdetails.date}}</li>
+          <li class="list-group-item">Technology: {{joiningdetails.technology}}</li>
+          <li class="list-group-item">Location {{joiningdetails.location}}</li>
+          <li class="list-group-item">Feedback: {{joiningdetails.feedback}}</li>
+         
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h3>Onboarding Details</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Onboarding Date: {{onboardingdetails.onboardingDate}}</li>
+          <li class="list-group-item">BGC Status: {{onboardingdetails.bcgStatus}}</li>
+          <li class="list-group-item">Onboarding ETA Status: {{onboardingdetails.etaStatus}}</li>
+          <li class="list-group-item">Graduation Status: {{onboardingdetails.graduationStatus}}</li>
+  
+         
+        </ul>
+      </div>
+      <div class="col-md-3" >
+        <h3>Demand Details</h3>
+        <ul class="list-group list-group-flush" >
+          <li class="list-group-item">Demand ID: {{demandsdetails.did}}</li>
+          <li class="list-group-item">Roler: {{demandsdetails.role}}</li>
+          <li class="list-group-item">Departmenr: {{demandsdetails.dept}}</li>
+          <li class="list-group-item">Hiring Manage: {{demandsdetails.mname}}</li>
+          <li class="list-group-item">Location {{demandsdetails.location}}</li>
+
+        </ul>
+      </div>
     </div>
-    <div>
-        <label ><b>First Name :</b></label> {{candidate.firstname}}
-    </div>
-    <div>
-        <label ><b>Last Name :</b></label> {{candidate.lastname}}
-    </div>
-    <div>
-        <label ><b>Contact Number :</b></label> {{candidate.phoneno}}
-    </div>
-    <div>
-        <label ><b>Email ID :</b></label> {{candidate.email}}
-    </div>
-    <div>
-        <label ><b>Date of Birth :</b></label> {{candidate.birthdate}}
-    </div>
-    <div>
-        <label ><b>City:</b></label> {{candidate.city}}
-    </div>
-    <div>
-        <label ><b>Country :</b></label> {{candidate.country}}
-    </div>
-    <h4>Education Details</h4>
-    <div>
-        <label ><b>College Name :</b></label> {{edudetails.clgname}}
-    </div>
-    <div>
-        <label ><b>University Name :</b></label> {{edudetails.universityname}}
-    </div>
-    <div>
-        <label ><b>Skills :</b></label> {{edudetails.course}}
-    </div>
-    <div>
-        <label ><b>College Address :</b></label> {{edudetails.address}}
-    </div>
-    <h4>Onboarding Details</h4>
-    <div>
-        <label ><b>Expected Joining Data :</b></label> {{joiningdetails.date}}
-    </div>
-    <div>
-        <label ><b>Technology :</b></label> {{joiningdetails.technology}}
-    </div>
-    <div>
-        <label ><b>Joining Location :</b></label> {{joiningdetails.location}}
-    </div>
-    <div>
-        <label ><b>Feedback :</b></label> {{joiningdetails.feedback}}
-    </div>
+  </div>
+  
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  
     
-    
+</mat-dialog-actions>
+
+<div class="col-sm-10">
+  <button (click)="back()" class="btn btn-primary">Back</button>
+</div>
 </div>
